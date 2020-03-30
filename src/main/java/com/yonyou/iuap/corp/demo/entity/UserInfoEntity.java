@@ -13,7 +13,7 @@ import java.io.Serializable;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserInfoEntity extends BaseEntity  {
 
-    private String id;  //ID
+    private long id;  //ID
     private String code; //编码
     private String user_id; //关联用户主键
     private String name; //名称
@@ -26,11 +26,11 @@ public class UserInfoEntity extends BaseEntity  {
     private String mobile; //手机号
     private String org_id; // 	任职组织
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 

@@ -5,6 +5,7 @@ import com.yonyou.iuap.corp.demo.entity.UserInfoEntity;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,11 +23,13 @@ public class UserInfoService extends BaseApi{
 
     /**
      * 根据手机号获取员工信息
-     * @param params
+     * @param login
      * @return
      */
-    public List<UserInfoEntity> detail(Map<String, Object> params) throws Exception {
+    public List<UserInfoEntity> detail(String login) throws Exception {
+        Map<String, Object> params  = new HashMap<String, Object>();
         params.put("type","1");
+        params.put("field",login);
         List<UserInfoEntity> result = doGet(detail_uri,params,new TypeReference<List<UserInfoEntity>>(){});
         return result;
     }

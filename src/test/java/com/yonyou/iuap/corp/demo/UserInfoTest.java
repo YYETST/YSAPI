@@ -29,10 +29,8 @@ public class UserInfoTest{
      * 根据手机号获取员工信息
      */
     @Test
-    public void getOrgDetail() throws Exception {
-        Map<String, Object> params  = new HashMap<String, Object>();
-        params.put("field","18810487612");
-        List<UserInfoEntity> result = userInfo.detail(params);
+    public void getUserInfoDetail() throws Exception {
+        List<UserInfoEntity> result = userInfo.detail("18810487612");
         System.out.println(result.toString());
     }
 }
