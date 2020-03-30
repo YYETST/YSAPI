@@ -11,10 +11,19 @@ https://open.diwork.com/#/doc-center
 - 自建应用验证方式
 - 基本档案的单元测试（人员、组织、供应商、物料等）
 - 采购订单的单元测试
+- MainTest可以走通采购订单的流程
 
 
+### 注意事项
 
-=======
-# YSAPI
-YSAPI DEMO
->>>>>>> 399a0310d4b212c2e4cf1e9523e02fdc1c208d40
+application.properties
+
+需要配置
+ 
+spring.redis.host=127.0.0.1
+
+isv.suiteKey=<Your AppKey>
+
+isv.suiteSecret=<Your AppSecret>
+
+isv.EncodingAESKey=<Your EncodingAESKey>
