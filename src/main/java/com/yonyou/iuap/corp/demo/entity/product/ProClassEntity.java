@@ -1,6 +1,7 @@
 package com.yonyou.iuap.corp.demo.entity.product;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.yonyou.iuap.corp.demo.entity.BaseEntity;
 import com.yonyou.iuap.corp.demo.entity.Language;
 
@@ -13,23 +14,30 @@ import com.yonyou.iuap.corp.demo.entity.Language;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ProClassEntity extends BaseEntity {
 
+    public ProClassEntity(Language name, String code) {
+        this.name = name;
+        this.code = code;
+    }
+
+    public ProClassEntity() {
+    }
+
     private Language name; //物料分类名称
     private String code; //编码
     private long productCount; //商品数量
     private String erpCode; //外部编码
-    private String parent; //上级分类id
+    private long parent; //上级分类id
     private String parent_name; //上级分类
     private int level; 	//层级;
     private String path; //路径;
-    private long productClass; //商品分类id
-    private String productClass_Name; //商品分类
     private int order; //排序
-    private long template; //物料模板id
-    private String template_name; //物料模板
+    @JsonProperty("isEnd")
     private boolean isEnd; //是否末级
     private long id; //ID
     private String pubts; //时间戳
     private int stopstatus; //启用状态
+    private String _status; //操作状态
+    private String remark;
 
     public Language getName() {
         return name;
@@ -63,11 +71,11 @@ public class ProClassEntity extends BaseEntity {
         this.erpCode = erpCode;
     }
 
-    public String getParent() {
+    public long getParent() {
         return parent;
     }
 
-    public void setParent(String parent) {
+    public void setParent(long parent) {
         this.parent = parent;
     }
 
@@ -94,45 +102,12 @@ public class ProClassEntity extends BaseEntity {
     public void setPath(String path) {
         this.path = path;
     }
-
-    public long getProductClass() {
-        return productClass;
-    }
-
-    public void setProductClass(long productClass) {
-        this.productClass = productClass;
-    }
-
-    public String getProductClass_Name() {
-        return productClass_Name;
-    }
-
-    public void setProductClass_Name(String productClass_Name) {
-        this.productClass_Name = productClass_Name;
-    }
-
     public int getOrder() {
         return order;
     }
 
     public void setOrder(int order) {
         this.order = order;
-    }
-
-    public long getTemplate() {
-        return template;
-    }
-
-    public void setTemplate(long template) {
-        this.template = template;
-    }
-
-    public String getTemplate_name() {
-        return template_name;
-    }
-
-    public void setTemplate_name(String template_name) {
-        this.template_name = template_name;
     }
 
     public boolean isEnd() {
@@ -167,4 +142,19 @@ public class ProClassEntity extends BaseEntity {
         this.stopstatus = stopstatus;
     }
 
+    public String get_status() {
+        return _status;
+    }
+
+    public void set_status(String _status) {
+        this._status = _status;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 }

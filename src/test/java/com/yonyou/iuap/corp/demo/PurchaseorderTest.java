@@ -1,9 +1,7 @@
 package com.yonyou.iuap.corp.demo;
 
 import com.yonyou.iuap.corp.demo.api.V1.PurchaseOrderService;
-import com.yonyou.iuap.corp.demo.entity.purchaseOrder.PurchaseOrderBodyEntity;
-import com.yonyou.iuap.corp.demo.entity.purchaseOrder.PurchaseOrderListEntity;
-import com.yonyou.iuap.corp.demo.entity.purchaseOrder.PurchaseOrderHeadEntity;
+import com.yonyou.iuap.corp.demo.entity.purchaseOrder.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,79 +96,21 @@ public class PurchaseorderTest {
 
     @Test
     public void purchaseorderSave() throws Exception {
-        PurchaseOrderHeadEntity order = new PurchaseOrderHeadEntity();
+        PurchaseOrderSavePEntity order = new PurchaseOrderSavePEntity();
         order.setOrg("1640198360125696");
-        order.setOrg_name("河姆渡集成测试");
-        order.setBustype("110000000000027");
-        order.setBustype_name("普通采购");
         order.setInvoiceVendor(1641526656504064L);
-        order.setInvoiceVendor_name("双汇火腿");
-        order.setVouchdate("2020-03-12 00:00:00");
-        order.setVendor("1641526656504064");
-        order.setVendor_name("双汇火腿");
-        order.setCreator("1641541568450816");
-        order.setCreatorId(1641541568450816L);
-        order.setOperator(1641541568450816L);
         order.setOperatorId(1641541568450816L);
-        order.setOperator_name("倪帅臣");
-        //币种金额精度
-        order.setCurrency_moneyDigit("2");
-        //币种Id
-        order.setCurrency("G001ZM0000DEFAULTCURRENCT00000000001");
-        //币种单价精度
-        order.setCurrency_priceDigit("2");
-        //币种编码
-        order.setCurrency_code("CNY");
-        //币种
-        order.setCurrency_name("人民币");
-        //本币金额精度
-        order.setNatCurrency_moneyDigit("2");
-        //本币单价精度
-        order.setNatCurrency_priceDigit("6");
-        //本币ID
-        order.setNatCurrency("G001ZM0000DEFAULTCURRENCT00000000001");
-        //本币编码
-        order.setNatCurrency_code("CNY");
-        //本币名称
-        order.setNatCurrency_name("人民币");
-        //汇率类型ID
-        order.setExchRateType("94e57bbb31ea11eaa30e060cee0005d2");
-        //汇率名称
-        order.setExchRateType_name("基准汇率");
-        //汇率
-        order.setExchRate("1");
-        //税率----TODO:应该村的是ID
-        order.setTaxRate("VAT3");
-        //无税金额
-        order.setOriMoney(400000);
-        //本币无税金额
-        order.setNatMoney(400000);
-        //含税金额
-        order.setOriSum(412000);
-        //本币含税金额
-        order.setNatSum(412000);
-        List<PurchaseOrderBodyEntity> list = new ArrayList<PurchaseOrderBodyEntity>();
-        PurchaseOrderBodyEntity orderCh = new PurchaseOrderBodyEntity();
+        List<PurchaseOrderSaveCEntity> list = new ArrayList<PurchaseOrderSaveCEntity>();
+        PurchaseOrderSaveCEntity orderCh = new PurchaseOrderSaveCEntity();
         orderCh.setInOrg("1640198360125696");
-        orderCh.setInOrg_name("河姆渡集成测试");
         orderCh.setDemandOrg("1640198360125696");
-        orderCh.setDemandOrg_name("河姆渡集成测试");
         orderCh.setInInvoiceOrg("1640198360125696");
-        orderCh.setInInvoiceOrg_name("河姆渡集成测试");
         orderCh.setRowno(1);
         orderCh.set_status("Insert");
-        orderCh.setProduct_cCode("010001");
-        orderCh.setProduct_cName("火腿");
         orderCh.setProduct(1641556234555648L);
         orderCh.setUnit(1641549812257024L);
-        orderCh.setUnit_name("包");
-        orderCh.setUnit_code("01");
         orderCh.setPurUOM("1641549812257024");
-        orderCh.setPurUOM_Code("01");
-        orderCh.setPurUOM_Name("包");
         orderCh.setPriceUOM(1641549812257024L);
-        orderCh.setPriceUOM_Code("01");
-        orderCh.setPriceUOM_Name("包");
         //主计量精度
         orderCh.setUnit_Precision(2);
         //无税单价

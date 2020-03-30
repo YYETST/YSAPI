@@ -1,6 +1,6 @@
 package com.yonyou.iuap.corp.demo;
 
-import com.yonyou.iuap.corp.demo.api.V1.VendorInfoService;
+import com.yonyou.iuap.corp.demo.api.V1.vendor.VendorInfoService;
 import com.yonyou.iuap.corp.demo.entity.vendor.VendorInfoBodyEntity;
 import com.yonyou.iuap.corp.demo.entity.vendor.VendorInfoHeadEntity;
 import org.junit.Test;

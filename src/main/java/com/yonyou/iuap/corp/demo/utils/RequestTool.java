@@ -139,10 +139,11 @@ public class RequestTool {
     public static String doPost(String requestUrl, Object param) throws IOException {
         CloseableHttpClient httpClient = getHttpClient();
         HttpPost post=new HttpPost(requestUrl);
+        post.setHeader("Content-Type","text/html;charset=UTF-8");
         ObjectMapper mapper = new ObjectMapper();
         String requestParam = mapper.writeValueAsString(param);
         System.out.println("这是请求参数:"+requestParam);
-        post.setEntity(new StringEntity(requestParam));
+        post.setEntity(new StringEntity(requestParam,"utf-8"));
         String responseString = httpClient.execute(post, response -> EntityUtils.toString(response.getEntity()));
         System.out.println("这是返回数据："+responseString);
         return responseString;

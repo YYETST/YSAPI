@@ -2,10 +2,14 @@ package com.yonyou.iuap.corp.demo.api.V1.product;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.yonyou.iuap.corp.demo.api.V1.BaseApi;
+import com.yonyou.iuap.corp.demo.entity.product.ProClassEntity;
 import com.yonyou.iuap.corp.demo.entity.product.ProClassListEntity;
+import com.yonyou.iuap.corp.demo.entity.product.ProClassSaveEntity;
+import com.yonyou.iuap.corp.demo.utils.BaseUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -44,4 +48,25 @@ public class ProclassService extends BaseApi {
         ProClassListEntity result = doGet(detail_uri,params,ProClassListEntity.class);
         return result;
     }
+
+    /**
+     * 物料分类保存
+     * @param entity
+     * @return
+     * @throws Exception
+     */
+    public ProClassListEntity save(ProClassSaveEntity entity) throws Exception {
+        setSaveDefaultValue(entity);
+        Map<String,Object> params = new HashMap<String,Object>();
+        params.put("data",entity);
+        ProClassListEntity result = doPost(save_uri,params,ProClassListEntity.class);
+        return result;
+    }
+
+    private void setSaveDefaultValue(ProClassSaveEntity entity){
+        entity.setStopstatus(0);
+        entity.set_status("Insert");
+        entity.setEnd(true);
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.yonyou.iuap.corp.demo.entity.vendor;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.yonyou.iuap.corp.demo.entity.BaseEntity;
 
 /**
@@ -31,6 +32,23 @@ public class VendorInfoBodyEntity extends BaseEntity {
     private String pubts; //时间戳
     private boolean isCreator; //是否创建者
     private boolean stopstatus; //状态
+    private String _status; //操作状态
+
+    @JsonProperty("vendorextends!simplename")
+    private String simplename; //简称
+    @JsonProperty("vendorextends!helpcode")
+    private int vendorextendsstopstatus;  //停用状态
+    @JsonProperty("vendorextends!_status")
+    private String vendorextends_status; //操作状态
+
+    public VendorInfoBodyEntity(String code, String name,long vendorclass) {
+        this.code = code;
+        this.name = name;
+        this.vendorclass = vendorclass;
+    }
+
+    public VendorInfoBodyEntity() {
+    }
 
     public String getCode() {
         return code;
@@ -190,5 +208,37 @@ public class VendorInfoBodyEntity extends BaseEntity {
 
     public void setVendorclass_code(String vendorclass_code) {
         this.vendorclass_code = vendorclass_code;
+    }
+
+    public String getSimplename() {
+        return simplename;
+    }
+
+    public void setSimplename(String simplename) {
+        this.simplename = simplename;
+    }
+
+    public int getVendorextendsstopstatus() {
+        return vendorextendsstopstatus;
+    }
+
+    public void setVendorextendsstopstatus(int vendorextendsstopstatus) {
+        this.vendorextendsstopstatus = vendorextendsstopstatus;
+    }
+
+    public String getVendorextends_status() {
+        return vendorextends_status;
+    }
+
+    public void setVendorextends_status(String vendorextends_status) {
+        this.vendorextends_status = vendorextends_status;
+    }
+
+    public String get_status() {
+        return _status;
+    }
+
+    public void set_status(String _status) {
+        this._status = _status;
     }
 }

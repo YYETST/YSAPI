@@ -1,6 +1,7 @@
 package com.yonyou.iuap.corp.demo.entity.product;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.yonyou.iuap.corp.demo.entity.BaseEntity;
 
 /**
@@ -26,10 +27,20 @@ public class ProClassListEntity extends BaseEntity {
     private int order; //排序
     private long template; //物料模板id
     private String template_name; //物料模板
+    @JsonProperty("isEnd")
     private boolean isEnd; //是否末级
     private long id; //ID
     private String pubts; //时间戳
     private String stopstatus; //启用状态
+    private String _status; //操作状态
+
+    public ProClassListEntity(String name, String code) {
+        this.name = name;
+        this.code = code;
+    }
+
+    public ProClassListEntity() {
+    }
 
     public String getName() {
         return name;
@@ -165,5 +176,13 @@ public class ProClassListEntity extends BaseEntity {
 
     public void setStopstatus(String stopstatus) {
         this.stopstatus = stopstatus;
+    }
+
+    public String get_status() {
+        return _status;
+    }
+
+    public void set_status(String _status) {
+        this._status = _status;
     }
 }
