@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.yonyou.iuap.corp.demo.api.V1.token.IsvToken;
-import com.yonyou.iuap.corp.demo.api.V1.token.SelfBuildToken;
 import com.yonyou.iuap.corp.demo.constraint.ResultCode;
 import com.yonyou.iuap.corp.demo.utils.RequestTool;
 import org.slf4j.Logger;
@@ -33,10 +32,6 @@ public abstract class BaseApi {
 
     //租户id---ISV应用使用
     private String tenantId;
-
-    //自建应用token
-    /*@Autowired
-    private SelfBuildToken token;*/
 
     //ISV 生态应用token
     @Autowired
@@ -127,15 +122,4 @@ public abstract class BaseApi {
         return requestUri+"?access_token="+access_token;
     }
 
-    /**
-     * 自建应用拼装token
-     * @param requestUri
-     * @return
-     * @throws Exception
-     */
-    /*protected  String getUrl(String requestUri) throws Exception {
-        if(null==getTenantId())throw  new Exception("请在调用业务接口前设置租户id");
-        String access_token = token.createToken();
-        return requestUri+"?access_token="+access_token;
-    }*/
 }
