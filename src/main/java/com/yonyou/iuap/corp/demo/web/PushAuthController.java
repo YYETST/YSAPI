@@ -41,8 +41,6 @@ public class PushAuthController {
     private String suiteSecret;
     @Value("${isv.EncodingAESKey}")
     private String EncodingAESKey;
-    @Value("${isv.redis.suiteKey}")
-    private String cacheSuiteKey;
 
     private static long cacheSuiteTicketTime = 1200;
 
@@ -60,7 +58,6 @@ public class PushAuthController {
         if (content.getType() == IsvEventType.SUITE_TICKET) {
             LOGGER.info("新的票据推送事件, suitekey: {}, suiteTicket: {}", content.getSuiteKey(), content.getSuiteTicket());
             redis.set(cacheSuiteTicket,content.getSuiteTicket(),cacheSuiteTicketTime);
-            redis.set(cacheSuiteKey,content.getSuiteKey(),cacheSuiteTicketTime);
             handleTicketPush(content);
         }
 

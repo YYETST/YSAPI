@@ -40,8 +40,8 @@ public class IsvToken {
     @Value("${isv.redis.suiteTicket}")
     private String cacheSuiteTicket;
 
-    @Value("${isv.redis.suiteKey}")
-    private String cacheSuiteKey;
+    @Value("${isv.suiteKey}")
+    private String suiteKey;
 
     @Autowired
     private RedisUtil redis;
@@ -62,10 +62,8 @@ public class IsvToken {
                 throw  new Exception("获取token失败--suiteTicket不存在，请查看回调地址是否畅通");
             }
             // 除签名外的其他参数
-            System.out.println("cacheSuiteKey:"+redis.get(cacheSuiteKey).toString());
-            params.put("suiteKey", redis.get(cacheSuiteKey).toString());
+            params.put("suiteKey", suiteKey);
             params.put("tenantId", tenantId);
-            System.out.println("cacheSuiteTicket:"+redis.get(cacheSuiteTicket).toString());
             params.put("suiteTicket", redis.get(cacheSuiteTicket).toString());
             params.put("timestamp", String.valueOf(System.currentTimeMillis()));
             // 计算签名
