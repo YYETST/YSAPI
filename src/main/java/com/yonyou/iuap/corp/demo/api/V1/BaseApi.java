@@ -102,7 +102,7 @@ public abstract class BaseApi {
 
     public String getTenantId() {
         //TODO：此处写死了，上线后需要删除，业务接口调用前需要先设置租户id
-        tenantId = "pqgkceae";
+        tenantId = "a6fhqr9v";
         return tenantId;
     }
 

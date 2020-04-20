@@ -44,7 +44,7 @@ public class PushAuthController {
 
     private static long cacheSuiteTicketTime = 1200;
 
-    @PostMapping("/open/auth_push")
+    @PostMapping("/open/auth_push1")
     public String authCallbackHandler(@RequestBody EncryptionHolder holder) throws IOException {
 
         // 构建解密验签处理对象
