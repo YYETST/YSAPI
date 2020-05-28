@@ -27,7 +27,7 @@ public class FreeloginTest {
      */
     @Test
     public void freeLogin() throws Exception {
-        OtherLoginEntity result = freeloginService.otherLoginTest("b33877aeac19d26c0ffce5c8e955d4d49744563b1e94f65110ce107651cf");
+        OtherLoginEntity result = freeloginService.otherLoginTest("38a044868f0d33e51478a83d0e4961a5365098c3c3c9ea51cd07e7d5c093");
         System.out.println(result.toString());
     }
 }
