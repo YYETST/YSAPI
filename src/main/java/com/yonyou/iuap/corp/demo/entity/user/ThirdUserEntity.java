@@ -16,6 +16,9 @@ public class ThirdUserEntity extends BaseEntity {
     private String email;
     private String userName;
     private String userCode;
+    private String tenantId;
+    private String serviceCode;
+
 
     public String getThirdUcId() {
         return thirdUcId;
@@ -63,5 +66,21 @@ public class ThirdUserEntity extends BaseEntity {
 
     public void setUserCode(String userCode) {
         this.userCode = userCode;
+    }
+
+    public String getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(String tenantId) {
+        this.tenantId = tenantId;
+    }
+
+    public String getServiceCode() {
+        return serviceCode;
+    }
+
+    public void setServiceCode(String serviceCode) {
+        this.serviceCode = serviceCode;
     }
 }

@@ -30,10 +30,29 @@ public class SingleSignOnTest {
     public void login() throws Exception {
         ThirdUserEntity entity = new ThirdUserEntity();
         entity.setThirdUcId("bhw6d87o");   //集成认证中心编码
-        entity.setUserId("12345");
+        entity.setUserId("45678");
         entity.setUserCode("ssss");
         entity.setUserName("****");
         String loginUrl = singleSignOnService.getSingleSignOnUrl(entity);
+        System.out.println("这是可以实现单点登录的地址:"+loginUrl);
+        //注意这里是方便测试直接通过命令打开
+        //TODO：线上项目应该通过点击按钮等其他形式请求后台返回拼接的登录url，然后在前端使用js window.open(loginUrl, "_blank");
+        oepnEexplorer(loginUrl);
+    }
+
+    /**
+     * 测试单点登录YS---登录到具体的节点
+     */
+    @Test
+    public void loginToNode() throws Exception {
+        ThirdUserEntity entity = new ThirdUserEntity();
+        entity.setThirdUcId("bhw6d87o");   //集成认证中心编码
+        entity.setUserId("45678");
+        entity.setUserCode("ssss");
+        entity.setUserName("****");
+        entity.setTenantId("zjhrilpq");
+        entity.setServiceCode("currency_u8c");  //跳转到币种界面
+        String loginUrl = singleSignOnService.getSingleSignOnUrlToNode(entity);
         System.out.println("这是可以实现单点登录的地址:"+loginUrl);
         //注意这里是方便测试直接通过命令打开
         //TODO：线上项目应该通过点击按钮等其他形式请求后台返回拼接的登录url，然后在前端使用js window.open(loginUrl, "_blank");

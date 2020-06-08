@@ -26,6 +26,8 @@ public class SingleSignOnService extends BaseApi {
     private String openys_uri;
     @Value("${api.sso.access}")
     private String access_uri;
+    @Value("${api.sso.node}")
+    private String node_uri;
 
     /**
      * 获取单点登录地址
@@ -39,6 +41,26 @@ public class SingleSignOnService extends BaseApi {
         String url = openys_uri+"?thirdUCId="+thirdUCId+"&code="+code+"&service="+service;
         return url;
     }
+
+
+    /**
+     * 获取单点登录地址 ---单点到指定节点
+     * @param entity
+     * @return
+     */
+    public String getSingleSignOnUrlToNode(ThirdUserEntity entity) throws Exception {
+        String code = getCode(entity);
+        String thirdUCId = entity.getThirdUcId();
+        //拼接访问系统的地址
+        String node = URLEncoder.encode(node_uri+entity.getServiceCode(),"utf-8");
+        String service = access_uri+"?tenantId="+entity.getTenantId()+"&service="+node;
+        System.out.println("这是拼接的service地址"+service);
+        String serviceUrl = URLEncoder.encode(service,"utf-8");
+        //拼接最终单点地址
+        String url = openys_uri+"?thirdUCId="+thirdUCId+"&code="+code+"&service="+serviceUrl;
+        return url;
+    }
+
     /**
      * 获取临时code
      * @param entity
