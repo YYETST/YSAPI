@@ -30,4 +30,15 @@ public class FreeloginTest {
         OtherLoginEntity result = freeloginService.otherLoginTest("38a044868f0d33e51478a83d0e4961a5365098c3c3c9ea51cd07e7d5c093");
         System.out.println(result.toString());
     }
+
+    /**
+     * 免登接口
+     * @throws Exception
+     */
+    @Test
+    public void isvFreeLogin() throws Exception {
+        String result = freeloginService.isvFreeLoginTest("85dbafffc412f204a46766b8fbd71883c1ddad7bd4c44af0aedddce295f6");
+        System.out.println(result);
+    }
+
 }
